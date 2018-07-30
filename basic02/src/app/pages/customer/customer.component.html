@@ -1,0 +1,51 @@
+<app-page-header>Customer</app-page-header>
+<div *ngIf='!isEditMode'>
+  <button (click)='addnew()'>New Customer</button>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>...</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cust of customers">
+        <td>{{cust.id}}</td>
+        <td>{{cust.code}}</td>
+        <!-- <td>{{cust.firstname}} {{cust.lastname}}</td> -->
+        <td>{{ cust.firstname}} {{ cust.lastname}}</td>
+        <td><button (click)="displayCustomer(cust)">view...</button></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">Customer Count : {{customers.length}}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div *ngIf='isEditMode'>
+  <button (click)="saveData()">Save</button>
+  <button (click)="cancelEdit()">Cancel</button>
+  <hr>
+  <div>
+    <!-- Code : -->
+    <!-- <input type="text" [(ngModel)]= 'currentCustomerCode'>
+    <br> Firstname :
+    <input type="text" [(ngModel)]= 'currentCustomerFirstname'>
+    <br> lastname :
+    <input type="text" [(ngModel)]= 'currentCustomerLastname'> -->
+    Code:
+    <input type="text" [(ngModel)]='currentCustomer.code'>
+    <br> Firstname :
+    <input type="text" [(ngModel)]='currentCustomer.firstname'>
+    <br> lastname :
+    <input type="text" [(ngModel)]='currentCustomer.lastname'>
+    <br>
+  </div>
+</div>
+<input type="text"[(ngModel)]="title">
+<app-customer-detail [customer]="currentCustomer" [title]="title"></app-customer-detail>

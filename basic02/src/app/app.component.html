@@ -1,0 +1,14 @@
+<div>
+  <button (click) = 'goHome()'>home</button>
+  <button (click) = 'goCustomers()'>Customer</button>
+  <button (click) = 'goAbout()'>About</button>
+
+
+
+</div>
+<!-- <div>currentPage : {{currentPage}}</div> -->
+
+<app-home *ngIf="isHomePage"></app-home>
+<app-about *ngIf="isAboutPage"></app-about>
+<app-customer *ngIf="isCustomerPage"></app-customer>
+
